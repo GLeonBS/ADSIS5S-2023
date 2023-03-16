@@ -1,4 +1,5 @@
-import { writeFile , readFile } from 'fs/promises'
+import { read } from 'fs';
+import { writeFile, readFile } from 'fs/promises'
 
 const alunosArr = [
     {
@@ -9,46 +10,42 @@ const alunosArr = [
     {
         nome: 'Mykaelly',
         idade: 20,
-        ra: '000000-02'
+        ra: '00000-02'
     },
     {
         nome: 'Gabriel',
         idade: 23,
-        ra: '000000-3'
+        ra: '00000-03'
     },
     {
         nome: 'Wilson',
         idade: 102,
-        ra: '00000-00'
+        ra: '00000-04'
     }
 ]
-export class Alunos {
+
+class Alunos {
     private alunos = alunosArr
 
-    constructor(){
 
-    }
-    
-    writeStudent() {
+    writeStudent(){
         try {
-            console.log('Criando lista de alunos')
-            writeFile('alunos.json', JSON.stringify(this.alunos, null, 2))
-        
-        } catch(err) {
-            console.error('Erro ao tentar escrever no arquivo', err)
-        }   
+            console.log('Craindo lista de alunos');
+            
+            writeFile('alunos.json', JSON.stringify(this.alunos, null, 2))    
+        } catch (err) {
+            console.error('Erro ao tentar escrever o arquivo', err);
+        }
     }
 
     async readStudent() {
         const leuMemo = await readFile('alunos.json', "utf-8")
-        let result = JSON.parse(leuMemo)
-
-        let findMyka = result.find(pessoa => pessoa.nome === "Mykaelly")
-
-        console.log(result[1].nome)
-        console.log('usando find', findMyka.nome)
+        console.log("Mas será que leu mesmo?", JSON.parse(leuMemo));
+        
     }
 }
+
+export { Alunos }
 
 
 

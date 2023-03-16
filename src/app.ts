@@ -2,7 +2,7 @@
 import express from 'express'
 // 19 - Importamos a constante routes de routes.ts
 import routes from './routes'
-import mongoose from 'mongoose'
+// import mongoose from 'mongoose'
 
 // 2 - Criamos uma classe App, que irá conter e prover para quem chama-la as configurações da aplicação
 class App {
@@ -20,7 +20,7 @@ class App {
         // 22 - estamos chamando o método routes, e assim que essa classe for instanciada, ela já executará o método routes
         // obs: por isso o server quando for executado saberá quais são as rotas da minha aplicação
         this.routes()
-        this.database()
+        // this.database()
     }
 
     // 6 - criamos um método chamado middleware
@@ -30,15 +30,15 @@ class App {
         this.express.use(express.json())
     }
 
-    private async database() {
-        try {
-            mongoose.set("strictQuery", true)
-            await mongoose.connect('mongodb+srv://thiagobussola:batatinha123@cluster0.cxavqaz.mongodb.net/?retryWrites=true&w=majority')
-            console.log('Connect database success')
-        } catch (err) {
-            console.error('Connect database fail, error: ', err)
-        }
-    }
+    // private async database() {
+    //     try {
+    //         mongoose.set("strictQuery", true)
+    //         await mongoose.connect('mongodb+srv://thiagobussola:batatinha123@cluster0.cxavqaz.mongodb.net/?retryWrites=true&w=majority')
+    //         console.log('Connect database success')
+    //     } catch (err) {
+    //         console.error('Connect database fail, error: ', err)
+    //     }
+    // }
 
     // 20 - Criamos um método chamado routes
     public routes(): void {

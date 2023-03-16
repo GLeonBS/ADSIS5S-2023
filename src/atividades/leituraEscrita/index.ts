@@ -1,10 +1,11 @@
-import { Alunos } from "./Alunos";
+import { Alunos } from "./Alunos"
+
 
 
 async function main() {
     const novosAlunos = new Alunos()
 
-    //novosAlunos.writeStudent()
+    // novosAlunos.writeStudent()
 
     novosAlunos.readStudent()
 }
