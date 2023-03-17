@@ -8,8 +8,10 @@ const routes = Router()
 
 // 17 - Estamos Utilizando o método get de Router() e passando como paramêtro o nome da rota, e o que será executado quando ela for chamada
 routes.get('/health-check', healthCheckController.check)
+routes.get('/products', productController.show)
+routes.get('/products-stock', productController.transform)
 routes.post('/products', productController.create)
-routes.get('/products' )
+
 
 
 

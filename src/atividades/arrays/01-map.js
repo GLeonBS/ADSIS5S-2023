@@ -10,7 +10,7 @@ const resultado = nums.map(item => item * 2)
 const nomes = ['Ana', 'Guilherme', 'Tiago', 'Luana', 'Soldado', 'Versales']
 
 const letras = nomes.map(text => text)
-// console.log(letras)
+ console.log(letras)
 
 
 const carrinho = [

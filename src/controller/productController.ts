@@ -7,6 +7,16 @@ class productController{
 
         return res.status(201).send()
     }
+
+    public async show(req: Request, res: Response){
+        const resposta = await productService.showProducts();
+        return res.json(resposta)
+    }
+
+    public async transform(req: Request, res: Response){
+        const lista = await productService.transformProducts()
+        return res.json(lista)
+    }
 }
 
-export default new productController
+export default new productController()
