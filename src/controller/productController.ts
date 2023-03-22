@@ -20,7 +20,7 @@ class productController{
 
     public async getTotal(req: Request, res: Response){
         const total =  await productService.totalProdutos()
-        return res.status(200).send(total)
+        return res.status(200).json({total})
     }
 }
 

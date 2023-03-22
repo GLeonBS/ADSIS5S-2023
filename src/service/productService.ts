@@ -39,11 +39,12 @@ class productService{
         try {
             const estoque = await this.transformProducts()
             console.log(estoque);
-            console.log(estoque.valor_estoque);
-            // const total = estoque.reduce((acumulador, valorAtual) => acumulador + valorAtual.valor_estoque, 0)
-            // Number.parseFloat(total)
-            // console.log(total);
-            // return total;
+            const total = estoque.reduce((acumulador, valorAtual) => {
+                const soma = acumulador + valorAtual.valor_estoque            
+                return soma
+            }, 0).toFixed(2)
+            console.log(total);
+            return total ;
         } catch (err) {
             console.error("Não consegui :/ ", err);
         }
