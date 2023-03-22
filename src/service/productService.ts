@@ -1,4 +1,5 @@
 import { writeFile, readFile } from 'fs/promises'
+import { ListFormat } from 'typescript';
 
 class productService{
     async createProduct(data){
@@ -23,23 +24,29 @@ class productService{
     async transformProducts() {
         const products = await this.showProducts()        
         const listaProdutos = products.map(item => {
-            const list = [{
+            const list = {
                 nome: item.nome,
                 qtde: item.qtde,
                 preco: item.preco,
                 valor_estoque: item.qtde * item.preco
-            }]
+            }
             return list
         })
         return listaProdutos
     }
 
     async totalProdutos() {
-        const estoque = await this.transformProducts()
-        const total = estoque.reduce((acumulador: number, valorAtual) => {
-            const soma = acumulador + Number.parseFloat(valorAtual.valor_estoque)
-            console.log(soma);
-        })
+        try {
+            const estoque = await this.transformProducts()
+            console.log(estoque);
+            console.log(estoque.valor_estoque);
+            // const total = estoque.reduce((acumulador, valorAtual) => acumulador + valorAtual.valor_estoque, 0)
+            // Number.parseFloat(total)
+            // console.log(total);
+            // return total;
+        } catch (err) {
+            console.error("Não consegui :/ ", err);
+        }
     }
 }
 
