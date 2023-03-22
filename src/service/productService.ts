@@ -3,20 +3,20 @@ import { writeFile, readFile } from 'fs/promises'
 class productService{
     async createProduct(data){
         try {
-            console.log('Criando lista de produtos');
             await writeFile('products.json', JSON.stringify(data, null, 2)) 
         } catch (err) {
-            console.error('Erro ao tentar escrever o arquivo de produtos, ', err);
+            throw new Error("Não foi possível criar o arquivo de produtos ")
+            console.error("Erro: ", err);
         }
     }
 
     async showProducts(){
         try {
-            console.log("Lendo produtos")
             const produtos = await readFile('products.json', "utf-8")
             return JSON.parse(produtos)
         } catch (err) {
-            console.error("Não consegui ler, ", err);
+            throw new Error("Não foi possível ler o arquivo de produtos ")
+            console.error("Erro: ", err);
         }
     }
 
@@ -32,6 +32,14 @@ class productService{
             return list
         })
         return listaProdutos
+    }
+
+    async totalProdutos() {
+        const estoque = await this.transformProducts()
+        const total = estoque.reduce((acumulador: number, valorAtual) => {
+            const soma = acumulador + Number.parseFloat(valorAtual.valor_estoque)
+            console.log(soma);
+        })
     }
 }
 

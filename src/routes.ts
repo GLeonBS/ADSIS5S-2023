@@ -11,6 +11,7 @@ routes.get('/health-check', healthCheckController.check)
 routes.get('/products', productController.show)
 routes.get('/products-stock', productController.transform)
 routes.post('/products', productController.create)
+routes.get('/total-stock', productController.getTotal)
 
 
 
