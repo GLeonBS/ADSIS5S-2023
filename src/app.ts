@@ -29,7 +29,7 @@ class App {
         // 7 - Quem chama o método middleware está utilizando o método use() do express, para informar ao framework
         // que ele deve entender requisições e respostas no formato json
         this.express.use(express.json())
-        this.express.use(cors)
+        this.express.use(cors())
     }
 
     // private async database() {
