@@ -1,5 +1,6 @@
 // 1 - Importamos o express
 import express from 'express'
+import cors from 'cors' //aceita requisições de domínios diferentes
 // 19 - Importamos a constante routes de routes.ts
 import routes from './routes'
 // import mongoose from 'mongoose'
@@ -28,6 +29,7 @@ class App {
         // 7 - Quem chama o método middleware está utilizando o método use() do express, para informar ao framework
         // que ele deve entender requisições e respostas no formato json
         this.express.use(express.json())
+        this.express.use(cors)
     }
 
     // private async database() {
