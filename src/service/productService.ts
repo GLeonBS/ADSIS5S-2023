@@ -40,8 +40,7 @@ class productService{
             const estoque = await this.transformProducts()
             console.log(estoque);
             const total = estoque.reduce((acumulador, valorAtual) => {
-                const soma = acumulador + valorAtual.valor_estoque            
-                return soma
+                return acumulador + valorAtual.valor_estoque            
             }, 0).toFixed(2)
             console.log(total);
             return total ;
