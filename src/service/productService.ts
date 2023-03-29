@@ -6,8 +6,8 @@ class productService{
         try {
             await writeFile('products.json', JSON.stringify(data, null, 2)) 
         } catch (err) {
-            throw new Error("Não foi possível criar o arquivo de produtos ")
             console.error("Erro: ", err);
+            throw new Error("Não foi possível criar o arquivo de produtos ")
         }
     }
 
@@ -16,8 +16,8 @@ class productService{
             const produtos = await readFile('products.json', "utf-8")
             return JSON.parse(produtos)
         } catch (err) {
-            throw new Error("Não foi possível ler o arquivo de produtos ")
             console.error("Erro: ", err);
+            throw new Error("Não foi possível ler o arquivo de produtos ")
         }
     }
 
